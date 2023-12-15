@@ -4,6 +4,7 @@ import { RestaurantsScreen } from "./src/features/restauraunts/screens/Restauran
 import { ThemeProvider } from "styled-components/native";
 import { theme } from "./src/infrastructure/theme";
 
+
 import {
   useFonts as useOswald,
   Oswald_400Regular,
