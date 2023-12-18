@@ -12,6 +12,7 @@ export const restaurantTransform = ({ results = [] }) => {
       isOpenNow: restaurant.opening_hours
         ? restaurant.opening_hours.open_now
         : false,
+      address: restaurant.vicinity,
     };
   });
   return camelize(mappedResult);
