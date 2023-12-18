@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MapScreen } from "../../features/map/MapScreen";
+import { MapScreen } from "../../features/map/screens/MapScreen";
 import { SettingsScreen } from "../../features/settings/SettingsScreen";
 
 import { NavigationContainer } from "@react-navigation/native";
