@@ -11,11 +11,13 @@ import {
 } from "./RestaurantInfoCardStyles";
 
 import { SvgXml } from "react-native-svg";
-import { Spacer } from "../../../components/Spacer/Spacer";
-import { Text } from "../../../components/Typography/Typography";
 
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+
+import { Spacer } from "../../../components/Spacer/Spacer";
+import { Text } from "../../../components/Typography/Typography";
+import { Favourites } from "../../../components/favourites/FavouritesComponent";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -35,6 +37,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
+      <Favourites restaurant={restaurant} />
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{name}</Text>

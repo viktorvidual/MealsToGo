@@ -8,7 +8,7 @@ export const MapCalloutComponent = ({ restaurant }) => {
   return (
     <>
       <View>
-        <CompactRestaurantInfo restaurant={restaurant} />
+        <CompactRestaurantInfo isMap restaurant={restaurant} />
       </View>
     </>
   );
