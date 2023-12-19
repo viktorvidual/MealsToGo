@@ -27,7 +27,7 @@ const CompactWebview = styled(WebView)`
 `;
 
 export const CompactRestaurantInfo = ({ restaurant, isMap }) => {
-  const Image = (isAndroid && isMap) ? CompactWebview : CompactImage;
+  const Image = isAndroid && isMap ? CompactWebview : CompactImage;
 
   return (
     <>

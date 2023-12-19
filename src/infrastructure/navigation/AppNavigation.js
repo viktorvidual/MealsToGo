@@ -3,7 +3,6 @@ import React from "react";
 import { MapScreen } from "../../features/map/screens/MapScreen";
 import { SettingsScreen } from "../../features/settings/SettingsScreen";
 
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -33,13 +32,11 @@ const createScreenOptions = ({ route }) => {
 export const AppNavigation = () => {
   return (
     <>
-      <NavigationContainer>
-        <Tab.Navigator screenOptions={createScreenOptions}>
-          <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-          <Tab.Screen name="Map" component={MapScreen} />
-          <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
-      </NavigationContainer>
+      <Tab.Navigator screenOptions={createScreenOptions}>
+        <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+        <Tab.Screen name="Map" component={MapScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
     </>
   );
 };
