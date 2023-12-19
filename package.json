@@ -30,6 +30,7 @@
     "react-native-screens": "~3.22.0",
     "react-native-svg": "13.9.0",
     "react-native-vector-icons": "^10.0.3",
+    "react-native-webview": "^13.6.3",
     "styled-components": "^6.1.1"
   },
   "devDependencies": {
