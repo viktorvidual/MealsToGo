@@ -22,7 +22,7 @@ const LoadingIndicator = styled(ActivityIndicator)`
   margin-left: -25px;
 `;
 
-const RestaurantList = styled(FlatList).attrs({
+export const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16,
   },
