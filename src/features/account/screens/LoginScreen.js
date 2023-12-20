@@ -14,7 +14,7 @@ import { Spacer } from "../../../components/Spacer/Spacer";
 import { Text } from "../../../components/Typography/Typography";
 import { LoadingIndicator } from "../../../components/LoadingIndicator/LoadingIndicator";
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { onLogin, error, isLoading } = useContext(AuthenticationContext);
@@ -50,6 +50,11 @@ export const LoginScreen = () => {
             >
               Login
             </AuthButton>
+
+            <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+              Cancel
+            </AuthButton>
+
             {error && (
               <Spacer>
                 <Text variant="error">{error.message}</Text>

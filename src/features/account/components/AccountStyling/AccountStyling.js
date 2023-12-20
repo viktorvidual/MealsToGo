@@ -30,6 +30,7 @@ export const AuthButton = styled(Button).attrs({
 })`
   background-color: ${(props) => props.theme.colors.ui.primary};
   padding: ${(props) => props.theme.space[2]};
+  margin-bottom: ${(props) => props.theme.space[2]};
 `;
 
 export const AuthInput = styled(TextInput)`

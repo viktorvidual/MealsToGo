@@ -14,7 +14,7 @@ import { LoadingIndicator } from "../../../components/LoadingIndicator/LoadingIn
 import { Spacer } from "../../../components/Spacer/Spacer";
 import { Text } from "../../../components/Typography/Typography";
 
-export const RegisterScreen = () => {
+export const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
@@ -61,6 +61,11 @@ export const RegisterScreen = () => {
             >
               Sign Up
             </AuthButton>
+
+            <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+              Cancel
+            </AuthButton>
+
             {error && (
               <Spacer>
                 <Text variant="error">{error.message}</Text>
