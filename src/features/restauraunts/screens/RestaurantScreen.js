@@ -1,15 +1,16 @@
 import React, { useContext, useState } from "react";
-import { ActivityIndicator, MD2Colors } from "react-native-paper";
 import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
+
+import { ActivityIndicator, MD2Colors } from "react-native-paper";
 
 import { SafeArea } from "../../../components/utility/SafeArea/SafeArea";
 import { RestaurantInfoCard } from "../components/RestaurantInfoCard";
 import { SearchComponent } from "../components/SearchComponent";
+import { FavouritesBar } from "../../../components/favourites/FavouritesBarComponent";
 
 import { RestaurantContext } from "../../../services/restaurant/restaurants.context";
 import { FavouritesContext } from "../../../services/favourites/FavouritesContext";
-import { FavouritesBar } from "../../../components/favourites/FavouritesBarComponent";
 
 const LoadingContainer = styled.View`
   position: absolute;
