@@ -3,6 +3,7 @@ import React from "react";
 import { MapScreen } from "../../features/map/screens/MapScreen";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import { RestaurantsNavigator } from "./RestaurantsNavigator";
@@ -29,7 +30,6 @@ const createScreenOptions = ({ route }) => {
     ),
     activeTintColor: "tomato",
     inactiveTintColor: "gray",
-    headerShown: false,
   };
 };
 

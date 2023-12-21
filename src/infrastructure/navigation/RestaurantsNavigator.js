@@ -10,6 +10,7 @@ export const RestaurantsNavigator = () => {
     <RestaurantStack.Navigator
       screenOptions={{
         presentation: "modal",
+        headerShown: false,
       }}
     >
       <RestaurantStack.Screen
