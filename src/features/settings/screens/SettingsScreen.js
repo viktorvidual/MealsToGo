@@ -1,6 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { List, Avatar } from "react-native-paper";
 import styled from "styled-components/native";
+import { TouchableOpacity } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect } from "@react-navigation/native";
 
 import { SafeArea } from "../../../components/utility/SafeArea/SafeArea";
 import { Text } from "../../../components/Typography/Typography";
@@ -24,13 +27,37 @@ const LogoutIcon = (props) => (
   <List.Icon {...props} color="black" icon="door" />
 );
 
+const CameraIcon = (props) => (
+  <List.Icon {...props} color="black" icon="camera" />
+);
+
 export const SettingsScreen = ({ navigation }) => {
   const { onLogOut, user } = useContext(AuthenticationContext);
+  const [photo, setPhoto] = useState(null);
+
+  const getProfilePicture = async (currentUser) => {
+    const photoUri = await AsyncStorage.getItem(`${currentUser.uid}-photo`);
+    setPhoto(photoUri);
+  };
+
+  useFocusEffect(() => {
+    getProfilePicture(user);
+  });
 
   return (
     <SafeArea>
       <AvatarContainer>
-        <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
+        <TouchableOpacity onPress={() => navigation.navigate("CameraScreen")}>
+          {!photo ? (
+            <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
+          ) : (
+            <Avatar.Image
+              size={180}
+              source={{ uri: photo }}
+              backgroundColor="#2182BD"
+            />
+          )}
+        </TouchableOpacity>
         <Text>{user.email}</Text>
       </AvatarContainer>
       <List.Section>
@@ -40,6 +67,14 @@ export const SettingsScreen = ({ navigation }) => {
           left={FavouritesIcon}
           onPress={() => navigation.navigate("Favourites")}
         />
+
+        <SettingsItem
+          title="Camera"
+          description="Upload a profile photo"
+          left={CameraIcon}
+          onPress={() => navigation.navigate("CameraScreen")}
+        />
+
         <SettingsItem title="Logout" left={LogoutIcon} onPress={onLogOut} />
       </List.Section>
     </SafeArea>

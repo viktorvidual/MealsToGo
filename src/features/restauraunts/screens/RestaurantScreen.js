@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FlatList, TouchableOpacity } from "react-native";
+import { FlatList, TouchableOpacity, Pressable } from "react-native";
 import styled from "styled-components/native";
 
 import { ActivityIndicator, MD2Colors } from "react-native-paper";
@@ -36,46 +36,44 @@ export const RestaurantsScreen = ({ navigation }) => {
 
   return (
     <>
-      <SafeArea>
-        {isLoading && (
-          <LoadingContainer>
-            <LoadingIndicator
-              animating={true}
-              color={MD2Colors.blue300}
-              size="large"
-            />
-          </LoadingContainer>
-        )}
-        <SearchComponent
-          isFavouritesToggled={isToggled}
-          onFavouritesToggle={() => setIsToggled(!isToggled)}
-        />
-        {isToggled && (
-          <FavouritesBar
-            favourties={favourites}
-            goToDetails={navigation.navigate}
+      {isLoading && (
+        <LoadingContainer>
+          <LoadingIndicator
+            animating={true}
+            color={MD2Colors.blue300}
+            size="large"
           />
-        )}
-        <RestaurantList
-          data={restaurants}
-          renderItem={({ item }) => {
-            return (
-              <TouchableOpacity
-                onPress={() =>
-                  navigation.navigate("RestaurantDetails", {
-                    restaurant: item,
-                  })
-                }
-              >
-                <FadeInView>
-                  <RestaurantInfoCard restaurant={item} />
-                </FadeInView>
-              </TouchableOpacity>
-            );
-          }}
-          keyExtractor={(item) => item.name}
+        </LoadingContainer>
+      )}
+      <SearchComponent
+        isFavouritesToggled={isToggled}
+        onFavouritesToggle={() => setIsToggled(!isToggled)}
+      />
+      {isToggled && (
+        <FavouritesBar
+          favourties={favourites}
+          goToDetails={navigation.navigate}
         />
-      </SafeArea>
+      )}
+      <RestaurantList
+        data={restaurants}
+        renderItem={({ item }) => {
+          return (
+            <Pressable
+              onPress={() =>
+                navigation.navigate("RestaurantDetails", {
+                  restaurant: item,
+                })
+              }
+            >
+              <FadeInView>
+                <RestaurantInfoCard restaurant={item} />
+              </FadeInView>
+            </Pressable>
+          );
+        }}
+        keyExtractor={(item) => item.name}
+      />
     </>
   );
 };
