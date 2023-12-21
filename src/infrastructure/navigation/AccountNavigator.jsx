@@ -1,6 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
-import { SafeArea } from "../../components/utility/SafeArea/SafeArea";
 
 import { AccountScreen } from "../../features/account/screens/AccountScreen";
 import { RegisterScreen } from "../../features/account/screens/RegisterScreen";

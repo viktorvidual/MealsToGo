@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
-import { FlatList, TouchableOpacity, Pressable } from "react-native";
+import { FlatList, Pressable } from "react-native";
 import styled from "styled-components/native";
 
 import { ActivityIndicator, MD2Colors } from "react-native-paper";
 
 import { FadeInView } from "../../../components/animations/fade.animation";
-import { SafeArea } from "../../../components/utility/SafeArea/SafeArea";
 import { RestaurantInfoCard } from "../components/RestaurantInfoCard";
 import { SearchComponent } from "../components/SearchComponent";
 import { FavouritesBar } from "../../../components/favourites/FavouritesBarComponent";
@@ -30,7 +29,7 @@ export const RestaurantList = styled(FlatList).attrs({
 })``;
 
 export const RestaurantsScreen = ({ navigation }) => {
-  const { restaurants, isLoading, error } = useContext(RestaurantContext);
+  const { restaurants, isLoading } = useContext(RestaurantContext);
   const [isToggled, setIsToggled] = useState(false);
   const { favourites } = useContext(FavouritesContext);
 
